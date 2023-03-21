@@ -8,8 +8,10 @@ Raylib.SetTargetFPS(60);
 
 string Level = "Start";
 //Color LightGray = new Color(245, 245, 245, 0);
+//Color LightBlue = new Color(137, 207, 240, 0);
 
-Rectangle one = new Rectangle (0, 700, 1200, 100);
+Rectangle Avatar = new Rectangle(0, 400, 40, 40);
+Rectangle one = new Rectangle (0, 600, 1200, 200);
 
 
 while (Raylib.WindowShouldClose() == false)
@@ -36,7 +38,8 @@ if (Level == "Start")
 if (Level == "Spel")
 {
     Raylib.ClearBackground(Color.LIGHTGRAY);
-    Raylib.DrawRectangleRec(one, Color.BLACK);
+    Raylib.DrawRectangleRec(Avatar, Color.BLACK);
+    Raylib.DrawRectangleRec(one, Color.VIOLET);
 }
 
 Raylib.EndDrawing();
