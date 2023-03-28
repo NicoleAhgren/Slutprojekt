@@ -7,13 +7,16 @@ Raylib.InitWindow(1200, 800, "IDunno"); // 1200 = bredden 800 = höjden
 Raylib.SetTargetFPS(60);
 
 string Level = "Start";
+int points = 0;
 // Color LightGray = new Color(245, 245, 245, 0);
 // Color LightBlue = new Color(137, 207, 240, 0);
 
 Texture2D Avatar = Raylib.LoadTexture("Avatar.png");
 float speed = 3f;
+Texture2D Star = Raylib.LoadTexture("Star.png");
 
 Rectangle avatar = new Rectangle(0, 400, Avatar.width, Avatar.height); // (0, 400)
+Rectangle star = new Rectangle(1150, 400, Avatar.width, Avatar.height);
 Rectangle one = new Rectangle (0, 600, 1200, 200);
 
 
@@ -27,7 +30,14 @@ while (Raylib.WindowShouldClose() == false)
             Level = "Spel";
         }
      }
-
+     if (Level == "Spel")
+     {
+        if (Raylib.CheckCollisionRecs(avatar, star))
+        {
+            Level = "Spel2";
+            points++;
+        }
+     }
      if (Level == "Spel")
      {
         Vector2 AvatarMovement = new Vector2();
@@ -78,7 +88,16 @@ if (Level == "Spel")
 {
     Raylib.ClearBackground(Color.LIGHTGRAY);
     Raylib.DrawTexture(Avatar, (int)avatar.x, (int)avatar.y, Color.WHITE);
+    Raylib.DrawTexture(Star, (int)star.x, (int)star.y, Color.YELLOW);
     Raylib.DrawRectangleRec(one, Color.VIOLET);
+    Raylib.DrawText(points.ToString(), 50, 50, 50, Color.BLACK);
+}
+if (Level == "Spel2")
+{
+        Raylib.ClearBackground(Color.LIGHTGRAY);
+    Raylib.DrawTexture(Avatar, (int)avatar.x, (int)avatar.y, Color.WHITE);
+    Raylib.DrawTexture(Star, (int)star.x, (int)star.y, Color.YELLOW);
+    Raylib.DrawText(points.ToString(), 50, 50, 50, Color.BLACK);
 }
 
 Raylib.EndDrawing();
