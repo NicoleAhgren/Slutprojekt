@@ -1,4 +1,5 @@
 ﻿using Raylib_cs;
+using System;
 using System.Numerics;
 
 // Skriv psuedokod å grejer
@@ -16,10 +17,36 @@ float speed = 3f;
 Texture2D Star = Raylib.LoadTexture("Star.png");
 
 Rectangle avatar = new Rectangle(0, 400, Avatar.width, Avatar.height); // (0, 400)
-Rectangle star = new Rectangle(1150, 400, Avatar.width, Avatar.height);
-Rectangle one = new Rectangle (0, 600, 1200, 200);
+//Rectangle avatar2 = new Rectangle(0, 400, Avatar.width, Avatar.height);
+Rectangle star = new Rectangle(1150, 400, Star.width, Star.height);
+Rectangle star2 = new Rectangle(50, 400, Star.width, Star.height);
+//Rectangle one = new Rectangle (0, 550, 1200, 300);
+// Rectangle one = new Rectangle(0, 395, 200, 60);
+// Rectangle two = new Rectangle (200, 395, 60, 200 );
+// Rectangle three = new Rectangle(260, 535, 300, 60);
+// Rectangle four = new Rectangle(555, 295, 60, 300);
+// Rectangle five = new Rectangle(615, 295, 250, 60);
+// Rectangle six = new Rectangle(865, 295, 60, 160);
+// Rectangle seven = new Rectangle(925, 395, 300, 60);
 
+Rectangle upp1 = new Rectangle(0, 0, 260, 395);
+Rectangle upp2 = new Rectangle(260, 0 , 295, 535);
+Rectangle upp3 = new Rectangle(555, 0, 370, 295);
+Rectangle upp4 = new Rectangle(925, 0, 275, 395);
 
+Rectangle ner1 = new Rectangle(0, 455, 200, 345);
+Rectangle ner2 = new Rectangle(200, 595, 415, 205);
+Rectangle ner3 = new Rectangle(615, 355, 250, 445);
+Rectangle ner4 = new Rectangle(865, 455, 335, 345);
+//Rectangle five = new Rectangle();
+
+// List<string> rectangles = new List<string>();
+// rectangles.Add("");
+// rectangles.Add("");
+// rectangles.Add("");
+// rectangles.Add("");
+// rectangles.Add("");
+// rectangles.Add("");
 
 while (Raylib.WindowShouldClose() == false)
 {
@@ -37,8 +64,52 @@ while (Raylib.WindowShouldClose() == false)
             Level = "Spel2";
             points++;
         }
+        else if (Raylib.CheckCollisionRecs(avatar, upp1))
+        {
+            Level = "GameOver";
+        }
+        else if (Raylib.CheckCollisionRecs(avatar, upp2))
+        {
+            Level = "Spel";
+        }
+        else if (Raylib.CheckCollisionRecs(avatar, upp3))
+        {
+            Level = "Spel";
+        }
+        else if (Raylib.CheckCollisionRecs(avatar, upp4))
+        {
+        Level = "Spel";
+        }
+        else if (Raylib.CheckCollisionRecs(avatar, ner1))
+        {
+            Level = "Spel";
+        }
+        else if (Raylib.CheckCollisionRecs(avatar, ner2))
+        {
+            Level = "Spel";
+        }
+        else if (Raylib.CheckCollisionRecs(avatar, ner3))
+        {
+            Level = "Spel";
+        }
+        else if (Raylib.CheckColissionRecs(avatar, ner4))
+        {
+            Level = "GameOver"
+        }
+        else
+        {
+            Level = "Spel";
+        }
      }
-     if (Level == "Spel")
+     else if (Level == "Spel2")
+     {
+        if (Raylib.CheckCollisionRecs(avatar, star2))
+        {
+            Level = "Slut";
+            points++;
+        }
+     }
+     if (Level == "Spel" || Level == "Spel2")
      {
         Vector2 AvatarMovement = new Vector2();
 
@@ -87,19 +158,47 @@ if (Level == "Start")
 if (Level == "Spel")
 {
     Raylib.ClearBackground(Color.LIGHTGRAY);
+
+    Raylib.DrawRectangleRec(upp1, Color.PURPLE);
+    Raylib.DrawRectangleRec(upp2, Color.PURPLE);
+    Raylib.DrawRectangleRec(upp3, Color.PURPLE);
+    Raylib.DrawRectangleRec(upp4, Color.PURPLE);
+
+    Raylib.DrawRectangleRec(ner1, Color.PURPLE);
+    Raylib.DrawRectangleRec(ner3, Color.PURPLE);
+    Raylib.DrawRectangleRec(ner2, Color.PURPLE);
+    Raylib.DrawRectangleRec(ner4, Color.PURPLE);
+
     Raylib.DrawTexture(Avatar, (int)avatar.x, (int)avatar.y, Color.WHITE);
-    Raylib.DrawTexture(Star, (int)star.x, (int)star.y, Color.YELLOW);
-    Raylib.DrawRectangleRec(one, Color.VIOLET);
+    Raylib.DrawTexture(Star, (int)star.x, (int)star.y, Color.BLACK);
     Raylib.DrawText(points.ToString(), 50, 50, 50, Color.BLACK);
 }
+
 if (Level == "Spel2")
 {
-        Raylib.ClearBackground(Color.LIGHTGRAY);
+    Raylib.ClearBackground(Color.LIGHTGRAY);
     Raylib.DrawTexture(Avatar, (int)avatar.x, (int)avatar.y, Color.WHITE);
-    Raylib.DrawTexture(Star, (int)star.x, (int)star.y, Color.YELLOW);
+    Raylib.DrawTexture(Star, (int)star2.x, (int)star2.y, Color.BLACK);
     Raylib.DrawText(points.ToString(), 50, 50, 50, Color.BLACK);
+}
+
+if (Level == "GameOver")
+{
+    Raylib.ClearBackground(Color.BLACK);
+    Raylib.DrawText("GAME OVER", 300, 300, 100, Color.RED);
 }
 
 Raylib.EndDrawing();
 
 }
+
+
+
+
+    // Raylib.DrawRectangleRec(one, Color.LIGHTGRAY);
+    // Raylib.DrawRectangleRec(two, Color.LIGHTGRAY);
+    // Raylib.DrawRectangleRec(three, Color.LIGHTGRAY);
+    // Raylib.DrawRectangleRec(four, Color.LIGHTGRAY);
+    // Raylib.DrawRectangleRec(five, Color.LIGHTGRAY);
+    // Raylib.DrawRectangleRec(six, Color.LIGHTGRAY);
+    // Raylib.DrawRectangleRec(seven, Color.LIGHTGRAY);
