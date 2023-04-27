@@ -70,31 +70,31 @@ while (Raylib.WindowShouldClose() == false)
         }
         else if (Raylib.CheckCollisionRecs(avatar, upp2))
         {
-            Level = "Spel";
+            Level = "GameOver";
         }
         else if (Raylib.CheckCollisionRecs(avatar, upp3))
         {
-            Level = "Spel";
+            Level = "GameOver";
         }
         else if (Raylib.CheckCollisionRecs(avatar, upp4))
         {
-        Level = "Spel";
+        Level = "GameOver";
         }
         else if (Raylib.CheckCollisionRecs(avatar, ner1))
         {
-            Level = "Spel";
+            Level = "GameOver";
         }
         else if (Raylib.CheckCollisionRecs(avatar, ner2))
         {
-            Level = "Spel";
+            Level = "GameOver";
         }
         else if (Raylib.CheckCollisionRecs(avatar, ner3))
         {
-            Level = "Spel";
+            Level = "GameOver";
         }
-        else if (Raylib.CheckColissionRecs(avatar, ner4))
+        else if (Raylib.CheckCollisionRecs(avatar, ner4))
         {
-            Level = "GameOver"
+            Level = "GameOver";
         }
         else
         {
@@ -177,9 +177,24 @@ if (Level == "Spel")
 if (Level == "Spel2")
 {
     Raylib.ClearBackground(Color.LIGHTGRAY);
+
+    Raylib.DrawRectangleRec(upp1, Color.PURPLE);
+    Raylib.DrawRectangleRec(upp2, Color.PURPLE);
+    Raylib.DrawRectangleRec(upp3, Color.PURPLE);
+    Raylib.DrawRectangleRec(upp4, Color.PURPLE);
+
+    Raylib.DrawRectangleRec(ner1, Color.PURPLE);
+    Raylib.DrawRectangleRec(ner3, Color.PURPLE);
+    Raylib.DrawRectangleRec(ner2, Color.PURPLE);
+    Raylib.DrawRectangleRec(ner4, Color.PURPLE);
     Raylib.DrawTexture(Avatar, (int)avatar.x, (int)avatar.y, Color.WHITE);
     Raylib.DrawTexture(Star, (int)star2.x, (int)star2.y, Color.BLACK);
     Raylib.DrawText(points.ToString(), 50, 50, 50, Color.BLACK);
+}
+
+if (Level == "Slut")
+{
+
 }
 
 if (Level == "GameOver")
