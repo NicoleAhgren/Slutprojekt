@@ -194,7 +194,9 @@ if (Level == "Spel2")
 
 if (Level == "Slut")
 {
-
+    Raylib.ClearBackground(Color.PURPLE);
+    Raylib.DrawText("GRATTIS! DU VANN!", 425, 300, 100, Color.BLACK);
+    Raylib.DrawText("Du fick" + points + "poäng", 425, 650, 30, Color.BLACK);
 }
 
 if (Level == "GameOver")
