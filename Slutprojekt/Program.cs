@@ -96,11 +96,8 @@ while (Raylib.WindowShouldClose() == false)
         {
             Level = "GameOver";
         }
-        else
-        {
-            Level = "Spel";
-        }
      }
+
      else if (Level == "Spel2")
      {
         if (Raylib.CheckCollisionRecs(avatar, star2))
@@ -195,8 +192,8 @@ if (Level == "Spel2")
 if (Level == "Slut")
 {
     Raylib.ClearBackground(Color.PURPLE);
-    Raylib.DrawText("GRATTIS! DU VANN!", 425, 300, 100, Color.BLACK);
-    Raylib.DrawText("Du fick" + points + "poäng", 425, 650, 30, Color.BLACK);
+    Raylib.DrawText("GRATTIS! DU VANN!", 365, 300, 50, Color.BLACK);
+    Raylib.DrawText("Du fick " + points + "poäng", 480, 400, 30, Color.BLACK);
 }
 
 if (Level == "GameOver")
