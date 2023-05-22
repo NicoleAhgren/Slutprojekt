@@ -40,13 +40,20 @@ Rectangle ner3 = new Rectangle(615, 355, 250, 445);
 Rectangle ner4 = new Rectangle(865, 455, 335, 345);
 //Rectangle five = new Rectangle();
 
-// List<string> rectangles = new List<string>();
-// rectangles.Add("");
-// rectangles.Add("");
-// rectangles.Add("");
-// rectangles.Add("");
-// rectangles.Add("");
-// rectangles.Add("");
+List<Rectangle> rectangles = new List<Rectangle>(); // Lista med alla rektanglar som skapar banan
+rectangles.Add(new Rectangle(0, 0, 260, 395)); 
+rectangles.Add(new Rectangle(260, 0 , 295, 535));
+rectangles.Add(new Rectangle(555, 0, 370, 295));
+rectangles.Add(new Rectangle(925, 0, 275, 395));     // Alla rektanglar på ovansidan
+
+rectangles.Add(new Rectangle (0, 455, 200, 345));
+rectangles.Add(new Rectangle(200, 595, 415, 205));
+rectangles.Add(new Rectangle(615, 355, 250, 445));
+rectangles.Add(new Rectangle(865, 455, 335, 345));   // Alla rektanglar på undersidan
+
+
+
+
 
 while (Raylib.WindowShouldClose() == false)
 {
